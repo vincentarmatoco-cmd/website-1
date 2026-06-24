@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Big Dog Media LLC — Social Media Content for Local Businesses</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0a0a0a;
+    --white: #f5f2ec;
+    --gold: #c9a84c;
+    --gold-light: #e8c96a;
+    --gray: #1a1a1a;
+    --gray-mid: #2e2e2e;
+    --gray-text: #888;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--black); color: var(--white); font-family: 'DM Sans', sans-serif; font-weight: 300; line-height: 1.6; overflow-x: hidden; }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 20px 48px;
+    display: flex; justify-content: space-between; align-items: center;
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+    background: rgba(10,10,10,0.92);
+    backdrop-filter: blur(12px);
+  }
+  .logo { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 0.12em; color: var(--white); text-decoration: none; }
+  .logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 32px; }
+  .nav-links a { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray-text); text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+
+  .hero {
+    padding: 160px 48px 80px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: end;
+    opacity: 0; animation: fadeUp 0.9s ease forwards 0.1s;
+  }
+  .hero-tag { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; display: flex; align-items: center; gap: 12px; }
+  .hero-tag::before { content: ''; display: block; width: 32px; height: 1px; background: var(--gold); }
+  h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(60px, 9vw, 100px); line-height: 0.95; letter-spacing: 0.02em; }
+  h1 em { font-style: normal; color: var(--gold); }
+  .hero-right { padding-bottom: 12px; }
+  .hero-right p { font-size: 15px; color: var(--gray-text); line-height: 1.8; margin-bottom: 32px; }
+  .hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--gray-mid); }
+  .stat { background: var(--gray); padding: 20px; }
+  .stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 40px; color: var(--gold); letter-spacing: 0.03em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--gray-text); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 4px; }
+
+  .section-label { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); display: flex; align-items: center; gap: 12px; margin-bottom: 40px; }
+  .section-label::before { content: ''; display: block; width: 32px; height: 1px; background: var(--gold); }
+
+  .work-section {
+    padding: 80px 48px;
+    border-top: 1px solid var(--gray-mid);
+    opacity: 0; animation: fadeUp 0.9s ease forwards 0.3s;
+  }
+
+  .work-filter { display: flex; gap: 8px; margin-bottom: 40px; flex-wrap: wrap; }
+  .filter-btn {
+    font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 8px 18px; border: 1px solid var(--gray-mid);
+    background: transparent; color: var(--gray-text); cursor: pointer; transition: all 0.2s;
+  }
+  .filter-btn:hover, .filter-btn.active { border-color: var(--gold); color: var(--gold); }
+
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--gray-mid);
+  }
+
+  .portfolio-item {
+    position: relative;
+    aspect-ratio: 4/5;
+    background: var(--gray);
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .portfolio-item:nth-child(3n+1) { aspect-ratio: 4/5; }
+  .portfolio-item:nth-child(6) { grid-column: span 2; aspect-ratio: 16/9; }
+  .portfolio-item:nth-child(9) { grid-column: span 2; aspect-ratio: 16/9; }
+
+  .portfolio-img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+  .portfolio-item:hover .portfolio-img { transform: scale(1.04); }
+
+  .portfolio-placeholder {
+    width: 100%; height: 100%;
+    background: var(--gray);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 12px; transition: background 0.2s;
+    border: 1px dashed rgba(201,168,76,0.2);
+  }
+  .portfolio-item:hover .portfolio-placeholder { background: #222; }
+  .placeholder-icon {
+    width: 40px; height: 40px;
+    border: 1px solid rgba(201,168,76,0.3);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .placeholder-icon svg { width: 18px; height: 18px; stroke: var(--gold); fill: none; opacity: 0.5; }
+  .placeholder-label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(201,168,76,0.4); }
+  .placeholder-type { font-size: 10px; color: rgba(255,255,255,0.2); }
+
+  .portfolio-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(10,10,10,0.85) 0%, transparent 60%);
+    opacity: 0; transition: opacity 0.3s;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 20px;
+  }
+  .portfolio-item:hover .portfolio-overlay { opacity: 1; }
+  .overlay-client { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 4px; }
+  .overlay-title { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 0.05em; color: var(--white); }
+
+  .results-section {
+    padding: 80px 48px;
+    border-top: 1px solid var(--gray-mid);
+    opacity: 0; animation: fadeUp 0.9s ease forwards 0.5s;
+  }
+  .results-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+    background: var(--gray-mid);
+  }
+  .result-card {
+    background: var(--gray); padding: 40px 32px;
+    transition: background 0.2s;
+  }
+  .result-card:hover { background: #222; }
+  .result-client { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+  .result-metric { font-family: 'Bebas Neue', sans-serif; font-size: 64px; color: var(--white); line-height: 1; letter-spacing: 0.02em; margin-bottom: 8px; }
+  .result-metric span { color: var(--gold); }
+  .result-desc { font-size: 13px; color: var(--gray-text); line-height: 1.6; margin-bottom: 16px; }
+  .result-platform { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.2); }
+
+  .testimonials-section {
+    padding: 80px 48px;
+    border-top: 1px solid var(--gray-mid);
+    opacity: 0; animation: fadeUp 0.9s ease forwards 0.6s;
+  }
+  .testimonials-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; background: var(--gray-mid); }
+  .testimonial { background: var(--gray); padding: 40px 32px; }
+  .testimonial-text { font-size: 15px; color: var(--white); line-height: 1.8; font-style: italic; margin-bottom: 24px; }
+  .testimonial-author { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); }
+  .testimonial-role { font-size: 11px; color: var(--gray-text); margin-top: 2px; }
+
+  .cta-section {
+    padding: 100px 48px;
+    border-top: 1px solid var(--gray-mid);
+    display: flex; flex-direction: column; align-items: center; text-align: center;
+    opacity: 0; animation: fadeUp 0.9s ease forwards 0.7s;
+  }
+  .cta-section h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(40px, 6vw, 72px); letter-spacing: 0.03em; line-height: 1; margin-bottom: 20px; }
+  .cta-section p { font-size: 15px; color: var(--gray-text); max-width: 440px; margin-bottom: 40px; }
+  .cta-btn { display: inline-block; padding: 16px 48px; background: var(--gold); color: var(--black); font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 500; text-decoration: none; transition: background 0.2s; }
+  .cta-btn:hover { background: var(--gold-light); }
+  .cta-sub { margin-top: 20px; font-size: 13px; color: var(--gray-text); }
+  .cta-sub a { color: var(--gold); text-decoration: none; }
+
+  footer {
+    padding: 32px 48px; border-top: 1px solid var(--gray-mid);
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;
+  }
+  .footer-links { display: flex; gap: 24px; }
+  .footer-links a { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gray-text); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-contact { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
+  .footer-contact a { font-size: 12px; color: var(--gray-text); text-decoration: none; transition: color 0.2s; }
+  .footer-contact a:hover { color: var(--gold); }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
+    .hero { grid-template-columns: 1fr; padding: 140px 24px 60px; gap: 32px; }
+    .work-section, .results-section, .testimonials-section, .cta-section { padding-left: 24px; padding-right: 24px; }
+    .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+    .portfolio-item:nth-child(6), .portfolio-item:nth-child(9) { grid-column: span 1; aspect-ratio: 4/5; }
+    .results-grid { grid-template-columns: 1fr; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    footer { padding: 24px; flex-direction: column; align-items: flex-start; }
+    .footer-contact { align-items: flex-start; }
+  }
+  @media (max-width: 560px) {
+    .portfolio-grid { grid-template-columns: 1fr; }
+    .portfolio-item:nth-child(6), .portfolio-item:nth-child(9) { grid-column: span 1; }
+    h1 { font-size: 56px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">Big Dog <span>Media</span></a>
+  <div class="nav-links">
+    <a href="index.html" class="active">Work</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-tag">Big Dog Media LLC</div>
+    <h1>We make<br>local brands<br><em>go viral.</em></h1>
+  </div>
+  <div class="hero-right">
+    <p>Photo, video, and social media content for sports teams, restaurants, trainers, and local businesses in the Chicagoland area. Real content. Real results.</p>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">50+</div>
+        <div class="stat-label">Projects delivered</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">3</div>
+        <div class="stat-label">Client types served</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Month-to-month</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">48hr</div>
+        <div class="stat-label">Rush turnaround</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="work-section">
+  <div class="section-label">Selected work</div>
+
+  <div class="work-filter">
+    <button class="filter-btn active" onclick="filterWork('all', this)">All</button>
+    <button class="filter-btn" onclick="filterWork('sports', this)">Sports</button>
+    <button class="filter-btn" onclick="filterWork('restaurant', this)">Restaurant</button>
+    <button class="filter-btn" onclick="filterWork('fitness', this)">Fitness</button>
+  </div>
+
+  <div class="portfolio-grid" id="portfolioGrid">
+
+    <div class="portfolio-item" data-cat="sports">
+      <div class="portfolio-placeholder">
+        <div class="placeholder-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="12" cy="12" r="4"/></svg></div>
+        <div class="placeholder-label">Your photo here</div>
+        <div class="placeholder-type">Game day shoot</div>
+      </div>
+      <div class="portfolio-overlay">
+        <div class="overlay-client">Sports</div>
+        <div class="overlay-title">Game Day Coverage</div>
+      </div>
+    </div>
+
+    <div class="portfolio-item" data-cat="restaurant">
+      <div class="portfolio-placeholder">
+        <div class="placeholder-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="12" cy="12" r="4"/></svg></div>
+        <div class="placeholder-label">Your photo here</div>
+        <div class="placeholder-type">Food photography</div>
+      </div>
+      <div class="portfolio-overlay">
+        <div class="overlay-client">Restaurant</div>
+        <div class="overlay-title">Menu Shoot</div>
+      </div>
+    </div>
+
+    <div class="portfolio-item" data-cat="fitness">
+      <div class="portfolio-placeholder">
+        <div class="placeholder-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="12" cy="12" r="4"/></svg></div>
+        <div class="placeholder-label">Your photo here</div>
+        <div class="placeholder-type">Trainer content</div>
+      </div>
+      <div class="portfolio-overlay">
+        <div class="overlay-client">Fitness</div>
+        <div class="overlay-title">Personal Trainer Reels</div>
+      </div>
+    </div>
+
+    <div class="portfolio-item" data-cat="sports">
+      <div class="portfolio-placeholder">
+        <div class="placeholder-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="12" cy="12" r="4"/></svg></div>
+        <div class="placeholder-label">Your photo here</div>
+        <div class="placeholder-type">Highlight reel</div>
+      </div>
+      <div class="portfolio-overlay">
+        <div class="overlay-client">Sports</div>
+        <div class="overlay-title">Highlight Reel</div>
+      </div>
+    </div>
+
+    <div class="portfolio-item" data-cat="restaurant">
+      <div class="portfolio-placeholder">
+        <div class="placeholder-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="12" cy="12" r="4"/></svg></div>
+        <div class="placeholder-label">Your photo here</div>
+        <div class="placeholder-type">Brand shoot</div>
+      </div>
+      <div class="portfolio-overlay">
+        <div class="overlay-client">Restaurant</div>
+        <div class="overlay-title">Brand Content</div>
+      </div>
+    </div>
+
+    <div class="portfolio-item" data-cat="sports">
+      <div class="portfolio-placeholder">
+        <div class="placeholder-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+        <div class="placeholder-label">Your video here</div>
+        <div class="placeholder-type">Hype video</div>
+      </div>
+      <div class="portfolio-overlay">
+        <div class="overlay-client">Sports</div>
+        <div class="overlay-title">Season Hype Video</div>
+      </div>
+    </div>
+
+    <div class="portfolio-item" data-cat="fitness">
+      <div class="portfolio-placeholder">
+        <div class="placeholder-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="12" cy="12" r="4"/></svg></div>
+        <div class="placeholder-label">Your photo here</div>
+        <div class="placeholder-type">BTS content</div>
+      </div>
+      <div class="portfolio-overlay">
+        <div class="overlay-client">Fitness</div>
+        <div class="overlay-title">Behind the Scenes</div>
+      </div>
+    </div>
+
+    <div class="portfolio-item" data-cat="restaurant">
+      <div class="portfolio-placeholder">
+        <div class="placeholder-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+        <div class="placeholder-label">Your video here</div>
+        <div class="placeholder-type">Promo video</div>
+      </div>
+      <div class="portfolio-overlay">
+        <div class="overlay-client">Restaurant</div>
+        <div class="overlay-title">Grand Opening Promo</div>
+      </div>
+    </div>
+
+    <div class="portfolio-item" data-cat="fitness">
+      <div class="portfolio-placeholder">
+        <div class="placeholder-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="12" cy="12" r="4"/></svg></div>
+        <div class="placeholder-label">Your photo here</div>
+        <div class="placeholder-type">Monthly content</div>
+      </div>
+      <div class="portfolio-overlay">
+        <div class="overlay-client">Fitness</div>
+        <div class="overlay-title">Monthly Retainer Work</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="results-section">
+  <div class="section-label">Client results</div>
+  <div class="results-grid">
+    <div class="result-card">
+      <div class="result-client">Basketball team</div>
+      <div class="result-metric">3<span>x</span></div>
+      <div class="result-desc">Follower growth in 60 days after launching a consistent Reels strategy. Highlight clips regularly hit 10K+ views.</div>
+      <div class="result-platform">Instagram Reels</div>
+    </div>
+    <div class="result-card">
+      <div class="result-client">Local restaurant</div>
+      <div class="result-metric">+<span>$</span>4K</div>
+      <div class="result-desc">Estimated monthly revenue increase attributed to social content driving foot traffic and online orders.</div>
+      <div class="result-platform">Instagram + TikTok</div>
+    </div>
+    <div class="result-card">
+      <div class="result-client">Personal trainer</div>
+      <div class="result-metric">8<span>x</span></div>
+      <div class="result-desc">Increase in DM inquiries after 30 days of consistent content. Trainer booked out 6 weeks in advance.</div>
+      <div class="result-platform">Instagram Reels</div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials-section">
+  <div class="section-label">What clients say</div>
+  <div class="testimonials-grid">
+    <div class="testimonial">
+      <div class="testimonial-text">"Before Big Dog Media, our Instagram was dead. Now our game highlights are getting thousands of views and we're getting DMs from sponsors. Worth every penny."</div>
+      <div class="testimonial-author">Coach D</div>
+      <div class="testimonial-role">Youth Basketball Organization, Chicagoland</div>
+    </div>
+    <div class="testimonial">
+      <div class="testimonial-text">"We were doing our own photos with an iPhone. The difference when Vincent came in was night and day. Our food actually looks as good as it tastes now."</div>
+      <div class="testimonial-author">Restaurant Owner</div>
+      <div class="testimonial-role">Local Restaurant, Chicago suburbs</div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <h2>Let's build<br>something <em style="color:var(--gold);font-style:normal;">real.</em></h2>
+  <p>Ready to see what consistent, professional content can do for your business?</p>
+  <a href="https://app.squareup.com/appointments/book/epxj5y0kkq7lo6/L9JPWWCQKEAFW/start" target="_blank" class="cta-btn">Book a free call</a>
+  <p class="cta-sub">Or <a href="pricing.html">view our packages</a> first</p>
+</section>
+
+<footer>
+  <a href="index.html" class="logo">Big Dog <span>Media</span> LLC</a>
+  <div class="footer-links">
+    <a href="index.html">Work</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <div class="footer-contact">
+    <a href="mailto:vincentarmato.co@gmail.com">vincentarmato.co@gmail.com</a>
+    <a href="tel:6303382172">630-338-2172</a>
+  </div>
+</footer>
+
+<script>
+function filterWork(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.portfolio-item').forEach(item => {
+    if (cat === 'all' || item.dataset.cat === cat) {
+      item.style.display = '';
+    } else {
+      item.style.display = 'none';
+    }
+  });
+}
+</script>
+</body>
+</html>

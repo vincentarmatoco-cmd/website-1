@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio — Big Dog Media</title>
+  <meta name="description" content="Explore Big Dog Media's work with clients like Bardo Basketball, All About Basketball Training, Firewater Barbecue, and Whiskey Hill." />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <style>
+    /* Client nav */
+    .client-nav {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 72px;
+      padding-bottom: 32px;
+      border-bottom: 2px solid var(--gray-200);
+    }
+    .client-nav__link {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--gray-600);
+      text-decoration: none;
+      padding: 9px 22px;
+      border-radius: 100px;
+      border: 2px solid var(--gray-200);
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .client-nav__link:hover {
+      color: var(--black);
+      border-color: var(--gold);
+      background: rgba(232,184,75,0.08);
+    }
+
+    /* Client sections */
+    .client-section {
+      margin-bottom: 88px;
+    }
+    .client-section:last-child {
+      margin-bottom: 0;
+    }
+    .client-section__header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .client-section__tag {
+      display: inline-block;
+      background: rgba(232,184,75,0.12);
+      color: var(--gold-dark);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 100px;
+      margin-bottom: 10px;
+    }
+    .client-section__title {
+      font-size: clamp(24px, 3vw, 36px);
+      font-weight: 800;
+      color: var(--black);
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+    }
+    .client-section__desc {
+      font-size: 15px;
+      color: var(--gray-600);
+      line-height: 1.6;
+      max-width: 480px;
+    }
+
+    @media (max-width: 480px) {
+      .client-nav { gap: 8px; }
+      .client-nav__link { font-size: 13px; padding: 7px 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="navbar__inner">
+      <a href="../index.html" class="navbar__logo">BIG <span>DOG</span> MEDIA</a>
+      <ul class="navbar__links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="portfolio.html" class="active">Portfolio</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="navbar__cta">
+        <a href="contact.html" class="btn btn-primary">Get In Touch</a>
+      </div>
+      <button class="navbar__hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu">
+    <a href="../index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="contact.html">Contact</a>
+    <a href="contact.html" class="btn btn-primary" style="text-align:center;justify-content:center;">Get In Touch</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <span class="page-hero__eyebrow">Our Work</span>
+      <h1 class="page-hero__title">Portfolio</h1>
+      <p class="page-hero__desc">A look at the brands we've partnered with — the content we've created, the stories we've told, and the results we've delivered.</p>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section class="section">
+    <div class="container">
+
+      <!-- Client Navigation -->
+      <nav class="client-nav" aria-label="Jump to client">
+        <a href="#bardo" class="client-nav__link">Bardo Basketball</a>
+        <a href="#abt" class="client-nav__link">All About Basketball Training</a>
+        <a href="#firewater" class="client-nav__link">Firewater Barbecue</a>
+        <a href="#whiskey-hill" class="client-nav__link">Whiskey Hill</a>
+      </nav>
+
+      <!-- Bardo Basketball -->
+      <div class="client-section" id="bardo">
+        <div class="client-section__header">
+          <div>
+            <span class="client-section__tag">AAU Basketball</span>
+            <h2 class="client-section__title">Bardo Basketball</h2>
+            <p class="client-section__desc">Video reels, game day coverage, and social content for a top-tier AAU program.</p>
+          </div>
+        </div>
+        <div class="portfolio-grid">
+          <div class="portfolio-card">
+            <video class="portfolio-card__img" src="../portfoilo/Bardo/bardovid1.mp4" controls></video>
+            <div class="portfolio-card__tag">Video</div>
+            <div class="portfolio-card__overlay">
+              <p class="portfolio-card__title">Hype Reel</p>
+              <span class="portfolio-card__view">View ↗</span>
+            </div>
+          </div>
+          <div class="portfolio-card">
+            <img class="portfolio-card__img" src="../portfoilo/Bardo/_GTS2143.jpg" alt="Bardo Basketball game day coverage" />
+            <div class="portfolio-card__tag">Photography</div>
+            <div class="portfolio-card__overlay">
+              <p class="portfolio-card__title">Game Day Coverage</p>
+              <span class="portfolio-card__view">View ↗</span>
+            </div>
+          </div>
+          <div class="portfolio-card">
+            <video class="portfolio-card__img" src="../portfoilo/Bardo/BBv3.mp4" controls></video>
+            <div class="portfolio-card__tag">Video</div>
+            <div class="portfolio-card__overlay">
+              <p class="portfolio-card__title">Season Recap</p>
+              <span class="portfolio-card__view">View ↗</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- All About Basketball Training -->
+      <div class="client-section" id="abt">
+        <div class="client-section__header">
+          <div>
+            <span class="client-section__tag">Basketball Training</span>
+            <h2 class="client-section__title">All About Basketball Training</h2>
+            <p class="client-section__desc">Content creation and social media management for David Brown's personal training brand.</p>
+          </div>
+        </div>
+        <div class="portfolio-grid">
+          <div class="portfolio-card">
+            <video class="portfolio-card__img" src="../portfoilo/AAB/DBv1.mp4" controls></video>
+            <div class="portfolio-card__tag">Video</div>
+            <div class="portfolio-card__overlay">
+              <p class="portfolio-card__title">Training Reel</p>
+              <span class="portfolio-card__view">View ↗</span>
+            </div>
+          </div>
+          <div class="portfolio-card">
+            <div class="portfolio-card__img placeholder-img ph-4"></div>
+            <div class="portfolio-card__tag">Photography</div>
+            <div class="portfolio-card__overlay">
+              <p class="portfolio-card__title">Brand Shoot</p>
+              <span class="portfolio-card__view">View ↗</span>
+            </div>
+          </div>
+          <div class="portfolio-card">
+            <video class="portfolio-card__img" src="../portfoilo/AAB/DBv2.mp4" controls></video>
+            <div class="portfolio-card__tag">Social</div>
+            <div class="portfolio-card__overlay">
+              <p class="portfolio-card__title">Social Content Series</p>
+              <span class="portfolio-card__view">View ↗</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Firewater Barbecue -->
+      <div class="client-section" id="firewater">
+        <div class="client-section__header">
+          <div>
+            <span class="client-section__tag">Restaurant</span>
+            <h2 class="client-section__title">Firewater Barbecue</h2>
+            <p class="client-section__desc">Food photography, video reels, and social media management for a local BBQ restaurant.</p>
+          </div>
+        </div>
+        <div class="portfolio-grid">
+          <div class="portfolio-card">
+            <video class="portfolio-card__img" src="../portfoilo/Firewater/FW4.mp4" controls></video>
+            <div class="portfolio-card__tag">Photography</div>
+            <div class="portfolio-card__overlay">
+              <p class="portfolio-card__title">Food Photography</p>
+              <span class="portfolio-card__view">View ↗</span>
+            </div>
+          </div>
+          <div class="portfolio-card">
+            <video class="portfolio-card__img" src="../portfoilo/Firewater/FW1.mp4" controls></video>
+            <div class="portfolio-card__tag">Video</div>
+            <div class="portfolio-card__overlay">
+              <p class="portfolio-card__title">Restaurant Reel</p>
+              <span class="portfolio-card__view">View ↗</span>
+            </div>
+          </div>
+          <div class="portfolio-card">
+            <video class="portfolio-card__img" src="../portfoilo/Firewater/FW3.mp4" controls></video>
+            <div class="portfolio-card__tag">Social</div>
+            <div class="portfolio-card__overlay">
+              <p class="portfolio-card__title">Social Campaign</p>
+              <span class="portfolio-card__view">View ↗</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Whiskey Hill -->
+      <div class="client-section" id="whiskey-hill">
+        <div class="client-section__header">
+          <div>
+            <span class="client-section__tag">Brewery & Restaurant</span>
+            <h2 class="client-section__title">Whiskey Hill</h2>
+            <p class="client-section__desc">Lifestyle photography, video content, and social media presence for a brewery and restaurant.</p>
+          </div>
+        </div>
+        <div class="portfolio-grid">
+          <div class="portfolio-card">
+            <div class="portfolio-card__img placeholder-img ph-6"></div>
+            <div class="portfolio-card__tag">Photography</div>
+            <div class="portfolio-card__overlay">
+              <p class="portfolio-card__title">Lifestyle & Atmosphere</p>
+              <span class="portfolio-card__view">View ↗</span>
+            </div>
+          </div>
+          <div class="portfolio-card">
+            <div class="portfolio-card__img placeholder-img ph-2"></div>
+            <div class="portfolio-card__tag">Video</div>
+            <div class="portfolio-card__overlay">
+              <p class="portfolio-card__title">Brand Video</p>
+              <span class="portfolio-card__view">View ↗</span>
+            </div>
+          </div>
+          <div class="portfolio-card">
+            <div class="portfolio-card__img placeholder-img ph-5"></div>
+            <div class="portfolio-card__tag">Social</div>
+            <div class="portfolio-card__overlay">
+              <p class="portfolio-card__title">Social Content</p>
+              <span class="portfolio-card__view">View ↗</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="cta-banner">
+    <div class="container">
+      <h2 class="cta-banner__title">Like What You <span>See?</span></h2>
+      <p class="cta-banner__subtitle">Let's create something just as compelling for your brand.</p>
+      <div class="cta-banner__actions">
+        <a href="contact.html" class="btn btn-primary">Start a Project</a>
+        <a href="services.html" class="btn btn-outline-white">View Services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__logo">BIG <span>DOG</span> MEDIA</div>
+          <p class="footer__tagline">Your end-to-end creative partner. Video, photography, and social media — all under one roof.</p>
+          <div class="footer__social">
+            <a href="https://www.instagram.com/vincent_armato" target="_blank" aria-label="Instagram">IG</a>
+            <a href="https://www.facebook.com/vincent_armato" target="_blank" aria-label="Facebook">FB</a>
+            <a href="https://www.linkedin.com/in/vincent_armato" target="_blank" aria-label="LinkedIn">LI</a>
+            <a href="https://www.youtube.com/@vincent_armato" target="_blank" aria-label="YouTube">YT</a>
+          </div>
+        </div>
+        <div class="footer__col">
+          <p class="footer__col-title">Services</p>
+          <ul>
+            <li><a href="services.html">Retainer Packages</a></li>
+            <li><a href="services.html">Video Reel Sessions</a></li>
+            <li><a href="services.html">Photography Sessions</a></li>
+            <li><a href="services.html">Social Media Management</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <p class="footer__col-title">Company</p>
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <p class="footer__col-title">Contact</p>
+          <ul>
+            <li><a href="mailto:vincentarmato@bigdogmedia.com">vincentarmato@bigdogmedia.com</a></li>
+            <li><a href="tel:+16303382172">(630) 338-2172</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 Big Dog Media. All rights reserved.</p>
+        <p>Built with purpose.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Big Dog Media — Full Creative Agency</title>
+  <meta name="description" content="Big Dog Media is a full-service creative agency offering video production, photography, branding, and marketing services. We create. You dominate." />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .fade-in:nth-child(2) { transition-delay: 0.1s; }
+    .fade-in:nth-child(3) { transition-delay: 0.2s; }
+    .fade-in:nth-child(4) { transition-delay: 0.3s; }
+    .fade-in:nth-child(5) { transition-delay: 0.4s; }
+    .fade-in:nth-child(6) { transition-delay: 0.5s; }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__logo">BIG <span>DOG</span> MEDIA</a>
+      <ul class="navbar__links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="pages/services.html">Services</a></li>
+        <li><a href="pages/portfolio.html">Portfolio</a></li>
+        <li><a href="pages/contact.html">Contact</a></li>
+      </ul>
+      <div class="navbar__cta">
+        <a href="pages/contact.html" class="btn btn-primary">Get In Touch</a>
+      </div>
+      <button class="navbar__hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="pages/services.html">Services</a>
+    <a href="pages/portfolio.html">Portfolio</a>
+    <a href="pages/contact.html">Contact</a>
+    <a href="pages/contact.html" class="btn btn-primary" style="text-align:center;justify-content:center;">Get In Touch</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero__content">
+        <div class="hero__badge">Full Creative Agency</div>
+        <h1 class="hero__title">
+          We Create.<br />You <span class="accent">Dominate.</span>
+        </h1>
+        <p class="hero__subtitle">
+          Big Dog Media is your end-to-end creative partner — from compelling video and photography to brand strategy and marketing campaigns that move the needle.
+        </p>
+        <div class="hero__actions">
+          <a href="pages/portfolio.html" class="btn btn-primary">View Our Work</a>
+          <a href="pages/contact.html" class="btn btn-outline">Get In Touch</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero__visual">
+      <div class="hero__img-block">
+        <div class="placeholder-img ph-1" style="min-height:100%;">Video Production</div>
+      </div>
+      <div class="hero__img-block">
+        <div class="placeholder-img ph-2" style="min-height:160px;">Photography</div>
+      </div>
+      <div class="hero__img-block">
+        <div class="placeholder-img ph-4" style="min-height:160px;">Branding</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES OVERVIEW -->
+  <section class="section section--gray">
+    <div class="container">
+      <div class="text-center mb-48">
+        <span class="section-label">What We Do</span>
+        <h2 class="section-title">Creative Services Built<br />to Grow Your Brand</h2>
+        <p class="section-subtitle" style="margin:0 auto;">From concept to execution, we handle every creative touch point so you can focus on running your business.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card fade-in">
+          <div class="service-card__icon">🎬</div>
+          <h3 class="service-card__title">Video Production</h3>
+          <p class="service-card__desc">Cinematic, story-driven video content that captures your brand's essence and stops the scroll.</p>
+        </div>
+        <div class="service-card fade-in">
+          <div class="service-card__icon">📷</div>
+          <h3 class="service-card__title">Photography</h3>
+          <p class="service-card__desc">Professional photography for products, teams, events, and brand campaigns that speak for themselves.</p>
+        </div>
+        <div class="service-card fade-in">
+          <div class="service-card__icon">📱</div>
+          <h3 class="service-card__title">Social Media</h3>
+          <p class="service-card__desc">Strategy, content creation, and management across all major platforms to build and engage your audience.</p>
+        </div>
+<div class="service-card fade-in">
+          <div class="service-card__icon">📈</div>
+          <h3 class="service-card__title">Ad Campaigns</h3>
+          <p class="service-card__desc">Paid advertising campaigns crafted to reach the right audience and drive measurable ROI.</p>
+        </div>
+      </div>
+      <div class="text-center mt-48">
+        <a href="pages/services.html" class="btn btn-outline">See All Services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SELECTED WORK -->
+  <section class="section">
+    <div class="container">
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:32px;">
+        <div>
+          <span class="section-label">Selected Work</span>
+          <h2 class="section-title">Recent Projects</h2>
+        </div>
+        <a href="pages/portfolio.html" class="btn btn-outline">View All Work</a>
+      </div>
+      <div class="portfolio-filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="sports">Sports</button>
+        <button class="filter-btn" data-filter="restaurant">Restaurant</button>
+        <button class="filter-btn" data-filter="fitness">Fitness</button>
+      </div>
+      <div class="portfolio-grid">
+        <div class="portfolio-card" data-category="sports">
+          <div class="portfolio-card__img placeholder-img ph-1" style="min-height:280px;"></div>
+          <div class="portfolio-card__tag">Sports</div>
+          <div class="portfolio-card__overlay">
+            <p class="portfolio-card__title">Game Day Coverage</p>
+            <span class="portfolio-card__view">View ↗</span>
+          </div>
+        </div>
+        <div class="portfolio-card" data-category="restaurant">
+          <div class="portfolio-card__img placeholder-img ph-4" style="min-height:280px;"></div>
+          <div class="portfolio-card__tag">Restaurant</div>
+          <div class="portfolio-card__overlay">
+            <p class="portfolio-card__title">Food Photography</p>
+            <span class="portfolio-card__view">View ↗</span>
+          </div>
+        </div>
+        <div class="portfolio-card" data-category="fitness">
+          <div class="portfolio-card__img placeholder-img ph-2" style="min-height:280px;"></div>
+          <div class="portfolio-card__tag">Fitness</div>
+          <div class="portfolio-card__overlay">
+            <p class="portfolio-card__title">Trainer Reels</p>
+            <span class="portfolio-card__view">View ↗</span>
+          </div>
+        </div>
+        <div class="portfolio-card" data-category="sports">
+          <div class="portfolio-card__img placeholder-img ph-5" style="min-height:280px;"></div>
+          <div class="portfolio-card__tag">Sports</div>
+          <div class="portfolio-card__overlay">
+            <p class="portfolio-card__title">Season Hype Video</p>
+            <span class="portfolio-card__view">View ↗</span>
+          </div>
+        </div>
+        <div class="portfolio-card" data-category="restaurant">
+          <div class="portfolio-card__img placeholder-img ph-6" style="min-height:280px;"></div>
+          <div class="portfolio-card__tag">Restaurant</div>
+          <div class="portfolio-card__overlay">
+            <p class="portfolio-card__title">Grand Opening Promo</p>
+            <span class="portfolio-card__view">View ↗</span>
+          </div>
+        </div>
+        <div class="portfolio-card" data-category="fitness">
+          <div class="portfolio-card__img placeholder-img ph-3" style="min-height:280px;"></div>
+          <div class="portfolio-card__tag">Fitness</div>
+          <div class="portfolio-card__overlay">
+            <p class="portfolio-card__title">Monthly Content Series</p>
+            <span class="portfolio-card__view">View ↗</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLIENT RESULTS -->
+  <section class="section" style="background:var(--black);">
+    <div class="container">
+      <div class="text-center mb-48">
+        <span class="section-label" style="color:var(--gold);">Proven Results</span>
+        <h2 class="section-title" style="color:var(--white);">Real Numbers.<br>Real Businesses.</h2>
+        <p class="section-subtitle" style="color:var(--gray-400);margin:0 auto;">What happens when consistent, professional content meets the right strategy.</p>
+      </div>
+      <div class="results-grid">
+        <div class="result-card">
+          <div class="result-client">Basketball Team</div>
+          <div class="result-metric">3<span>x</span></div>
+          <div class="result-desc">Follower growth in 60 days after launching a consistent Reels strategy. Highlight clips hit 10K+ views regularly.</div>
+          <div class="result-platform">Instagram Reels</div>
+        </div>
+        <div class="result-card">
+          <div class="result-client">Local Restaurant</div>
+          <div class="result-metric">+<span>$</span>4K</div>
+          <div class="result-desc">Estimated monthly revenue increase attributed to social content driving foot traffic and online orders.</div>
+          <div class="result-platform">Instagram + TikTok</div>
+        </div>
+        <div class="result-card">
+          <div class="result-client">Personal Trainer</div>
+          <div class="result-metric">8<span>x</span></div>
+          <div class="result-desc">Increase in DM inquiries after 30 days of consistent content. Trainer booked out 6 weeks in advance.</div>
+          <div class="result-platform">Instagram Reels</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section section--gray">
+    <div class="container">
+      <div class="text-center mb-48">
+        <span class="section-label">What Clients Say</span>
+        <h2 class="section-title">Don't Take<br>Our Word for It</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-quote">"</div>
+          <p class="testimonial-text">Before Big Dog Media, our Instagram was dead. Now our game highlights are getting thousands of views and we're getting DMs from sponsors. Worth every penny.</p>
+          <p class="testimonial-author">Coach D</p>
+          <p class="testimonial-role">Youth Basketball Organization, Chicagoland</p>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-quote">"</div>
+          <p class="testimonial-text">We were doing our own photos with an iPhone. The difference when Vincent came in was night and day. Our food actually looks as good as it tastes now.</p>
+          <p class="testimonial-author">Restaurant Owner</p>
+          <p class="testimonial-role">Local Restaurant, Chicago suburbs</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="section section--gray">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number" data-target="5" data-suffix="+" >5+</div>
+          <div class="stat-label">Years of Experience</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-target="150" data-suffix="+">150+</div>
+          <div class="stat-label">Projects Delivered</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-target="80" data-suffix="+">80+</div>
+          <div class="stat-label">Happy Clients</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number gold-text" data-target="100" data-suffix="%">100%</div>
+          <div class="stat-label">Client Satisfaction</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="cta-banner">
+    <div class="container">
+      <h2 class="cta-banner__title">Ready to Grow Your <span>Brand?</span></h2>
+      <p class="cta-banner__subtitle">Let's talk about what Big Dog Media can do for you.</p>
+      <div class="cta-banner__actions">
+        <a href="https://app.squareup.com/appointments/book/epxj5y0kkq7lo6/L9JPWWCQKEAFW/start" target="_blank" class="btn btn-primary">Book a Free Call</a>
+        <a href="pages/services.html" class="btn btn-outline-white">View Packages</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__logo">BIG <span>DOG</span> MEDIA</div>
+          <p class="footer__tagline">Your end-to-end creative partner. Video, photography, branding, and marketing — all under one roof.</p>
+          <div class="footer__social">
+            <a href="https://www.instagram.com/vincent_armato" target="_blank" aria-label="Instagram">IG</a>
+            <a href="https://www.facebook.com/vincent_armato" target="_blank" aria-label="Facebook">FB</a>
+            <a href="https://www.linkedin.com/in/vincent_armato" target="_blank" aria-label="LinkedIn">LI</a>
+            <a href="https://www.youtube.com/@vincent_armato" target="_blank" aria-label="YouTube">YT</a>
+          </div>
+        </div>
+        <div class="footer__col">
+          <p class="footer__col-title">Services</p>
+          <ul>
+            <li><a href="pages/services.html">Video Production</a></li>
+            <li><a href="pages/services.html">Photography</a></li>
+            <li><a href="pages/services.html">Social Media</a></li>
+            <li><a href="pages/services.html">Ad Campaigns</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <p class="footer__col-title">Company</p>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="pages/portfolio.html">Portfolio</a></li>
+            <li><a href="pages/contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <p class="footer__col-title">Contact</p>
+          <ul>
+            <li><a href="mailto:vincentarmato@bigdogmedia.com">vincentarmato@bigdogmedia.com</a></li>
+            <li><a href="tel:+16303382172">(630) 338-2172</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 Big Dog Media. All rights reserved.</p>
+        <p>Built with purpose.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

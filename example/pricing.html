@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing — Big Dog Media LLC</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  :root { --black:#0a0a0a;--white:#f5f2ec;--gold:#c9a84c;--gold-light:#e8c96a;--gray:#1a1a1a;--gray-mid:#2e2e2e;--gray-text:#888; }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--black);color:var(--white);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.6;overflow-x:hidden;}
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 48px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(201,168,76,0.15);background:rgba(10,10,10,0.92);backdrop-filter:blur(12px);}
+  .logo{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:0.12em;color:var(--white);text-decoration:none;}
+  .logo span{color:var(--gold);}
+  .nav-links{display:flex;gap:32px;}
+  .nav-links a{font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--gray-text);text-decoration:none;transition:color 0.2s;}
+  .nav-links a:hover,.nav-links a.active{color:var(--gold);}
+  .hero{padding:160px 48px 100px;max-width:900px;opacity:0;animation:fadeUp 0.9s ease forwards 0.1s;}
+  .hero-tag{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;display:flex;align-items:center;gap:12px;}
+  .hero-tag::before{content:'';display:block;width:32px;height:1px;background:var(--gold);}
+  h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(60px,10vw,110px);line-height:0.95;letter-spacing:0.02em;margin-bottom:28px;}
+  h1 em{font-style:normal;color:var(--gold);}
+  .hero p{font-size:16px;color:var(--gray-text);max-width:520px;line-height:1.8;}
+  .section-label{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:12px;margin-bottom:48px;}
+  .section-label::before{content:'';display:block;width:32px;height:1px;background:var(--gold);}
+  .packages-section{padding:80px 48px;border-top:1px solid var(--gray-mid);opacity:0;animation:fadeUp 0.9s ease forwards 0.3s;}
+  .packages-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--gray-mid);border:1px solid var(--gray-mid);}
+  .pkg{background:var(--gray);padding:40px 32px;position:relative;transition:background 0.2s;}
+  .pkg:hover{background:#222;}
+  .pkg.featured{background:var(--black);border:1px solid var(--gold);margin:-1px;z-index:2;}
+  .pkg-tag{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;}
+  .pkg-name{font-family:'Bebas Neue',sans-serif;font-size:42px;letter-spacing:0.05em;line-height:1;margin-bottom:8px;}
+  .pkg-price{font-size:13px;color:var(--gray-text);margin-bottom:32px;padding-bottom:32px;border-bottom:1px solid var(--gray-mid);}
+  .pkg-price strong{font-family:'Bebas Neue',sans-serif;font-size:52px;color:var(--white);letter-spacing:0.02em;display:block;line-height:1;margin-bottom:4px;}
+  .pkg.featured .pkg-price strong{color:var(--gold);}
+  .pkg-features{list-style:none;}
+  .pkg-features li{font-size:13px;color:#aaa;padding:9px 0;border-bottom:1px solid rgba(255,255,255,0.05);display:flex;align-items:flex-start;gap:10px;line-height:1.4;}
+  .pkg-features li::before{content:'—';color:var(--gold);flex-shrink:0;margin-top:1px;}
+  .pkg-features li:last-child{border-bottom:none;}
+  .pkg-cta{display:block;margin-top:32px;padding:14px 24px;text-align:center;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;text-decoration:none;border:1px solid rgba(255,255,255,0.2);color:var(--white);transition:all 0.2s;}
+  .pkg-cta:hover{border-color:var(--gold);color:var(--gold);}
+  .pkg.featured .pkg-cta{background:var(--gold);border-color:var(--gold);color:var(--black);font-weight:500;}
+  .pkg.featured .pkg-cta:hover{background:var(--gold-light);border-color:var(--gold-light);}
+  .addons-section{padding:80px 48px;border-top:1px solid var(--gray-mid);opacity:0;animation:fadeUp 0.9s ease forwards 0.5s;}
+  .addons-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:2px;background:var(--gray-mid);}
+  .addon{background:var(--gray);padding:24px;transition:background 0.2s;}
+  .addon:hover{background:#222;}
+  .addon-price{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--gold);letter-spacing:0.05em;margin-bottom:6px;}
+  .addon-name{font-size:13px;font-weight:500;color:var(--white);margin-bottom:4px;}
+  .addon-desc{font-size:12px;color:var(--gray-text);line-height:1.5;}
+  .process-section{padding:80px 48px;border-top:1px solid var(--gray-mid);opacity:0;animation:fadeUp 0.9s ease forwards 0.6s;}
+  .process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--gray-mid);}
+  .process-step{background:var(--gray);padding:32px 24px;}
+  .step-num{font-family:'Bebas Neue',sans-serif;font-size:64px;color:rgba(201,168,76,0.15);line-height:1;margin-bottom:16px;}
+  .step-title{font-size:13px;font-weight:500;color:var(--white);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.06em;}
+  .step-desc{font-size:12px;color:var(--gray-text);line-height:1.6;}
+  .cta-section{padding:100px 48px;border-top:1px solid var(--gray-mid);display:flex;flex-direction:column;align-items:center;text-align:center;opacity:0;animation:fadeUp 0.9s ease forwards 0.7s;}
+  .cta-section h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,6vw,72px);letter-spacing:0.03em;line-height:1;margin-bottom:20px;}
+  .cta-section p{font-size:15px;color:var(--gray-text);max-width:440px;margin-bottom:40px;}
+  .cta-btn{display:inline-block;padding:16px 48px;background:var(--gold);color:var(--black);font-size:12px;letter-spacing:0.15em;text-transform:uppercase;font-weight:500;text-decoration:none;transition:background 0.2s;}
+  .cta-btn:hover{background:var(--gold-light);}
+  .cta-sub{margin-top:20px;font-size:13px;color:var(--gray-text);}
+  .cta-sub a{color:var(--gold);text-decoration:none;}
+  footer{padding:32px 48px;border-top:1px solid var(--gray-mid);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+  .footer-links{display:flex;gap:24px;}
+  .footer-links a{font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--gray-text);text-decoration:none;transition:color 0.2s;}
+  .footer-links a:hover{color:var(--gold);}
+  .footer-contact{display:flex;flex-direction:column;align-items:flex-end;gap:4px;}
+  .footer-contact a{font-size:12px;color:var(--gray-text);text-decoration:none;transition:color 0.2s;}
+  .footer-contact a:hover{color:var(--gold);}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+  @media(max-width:900px){nav{padding:16px 24px;}.hero,.packages-section,.addons-section,.process-section,.cta-section{padding-left:24px;padding-right:24px;}.packages-grid{grid-template-columns:1fr;}.pkg.featured{margin:0;}.process-grid{grid-template-columns:repeat(2,1fr);}footer{padding:24px;flex-direction:column;align-items:flex-start;}.footer-contact{align-items:flex-start;}}
+  @media(max-width:560px){.process-grid{grid-template-columns:1fr;}h1{font-size:56px;}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo">Big Dog <span>Media</span></a>
+  <div class="nav-links">
+    <a href="index.html">Work</a>
+    <a href="pricing.html" class="active">Pricing</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-tag">Packages & pricing</div>
+  <h1>Content that<br>makes <em>noise.</em></h1>
+  <p>Photo, video, and social media content for local businesses that want to stand out. Monthly packages. Real results. No fluff.</p>
+</section>
+
+<section class="packages-section">
+  <div class="section-label">Packages</div>
+  <div class="packages-grid">
+    <div class="pkg">
+      <div class="pkg-tag">Entry</div>
+      <div class="pkg-name">Starter</div>
+      <div class="pkg-price"><strong>$800</strong>per month</div>
+      <ul class="pkg-features">
+        <li>1 content shoot per month (2 hrs)</li>
+        <li>8 professionally edited photos</li>
+        <li>2 Reels or TikTok videos</li>
+        <li>Captions + hashtags for every post</li>
+        <li>7-day delivery turnaround</li>
+      </ul>
+      <a href="mailto:vincentarmato.co@gmail.com?subject=Starter Package Inquiry" class="pkg-cta">Start here</a>
+    </div>
+    <div class="pkg featured">
+      <div class="pkg-tag">Most popular</div>
+      <div class="pkg-name">Growth</div>
+      <div class="pkg-price"><strong>$1,500</strong>per month</div>
+      <ul class="pkg-features">
+        <li>2 content shoots per month</li>
+        <li>20 professionally edited photos</li>
+        <li>4 Reels or TikTok videos</li>
+        <li>Monthly content calendar</li>
+        <li>Captions + hashtags for every post</li>
+        <li>5-day delivery turnaround</li>
+        <li>Monthly performance check-in</li>
+      </ul>
+      <a href="mailto:vincentarmato.co@gmail.com?subject=Growth Package Inquiry" class="pkg-cta">Get started</a>
+    </div>
+    <div class="pkg">
+      <div class="pkg-tag">Full service</div>
+      <div class="pkg-name">Premium</div>
+      <div class="pkg-price"><strong>$2,800</strong>per month</div>
+      <ul class="pkg-features">
+        <li>4 content shoots per month</li>
+        <li>40 professionally edited photos</li>
+        <li>8 Reels or TikTok videos</li>
+        <li>Full content strategy + calendar</li>
+        <li>Captions + hashtags for every post</li>
+        <li>Priority 3-day turnaround</li>
+        <li>Monthly analytics report</li>
+        <li>Direct messaging, always available</li>
+      </ul>
+      <a href="mailto:vincentarmato.co@gmail.com?subject=Premium Package Inquiry" class="pkg-cta">Go premium</a>
+    </div>
+  </div>
+</section>
+
+<section class="addons-section">
+  <div class="section-label">Add-ons</div>
+  <div class="addons-grid">
+    <div class="addon"><div class="addon-price">$400</div><div class="addon-name">Highlight reel</div><div class="addon-desc">60–90 sec hype video for games, events, or launches. Music-synced cuts.</div></div>
+    <div class="addon"><div class="addon-price">$250</div><div class="addon-name">Extra shoot</div><div class="addon-desc">Add a 2-hour shoot to any package, any month.</div></div>
+    <div class="addon"><div class="addon-price">$300</div><div class="addon-name">Testimonial video</div><div class="addon-desc">Filmed and edited client or customer testimonial. 60–90 seconds.</div></div>
+    <div class="addon"><div class="addon-price">$150</div><div class="addon-name">Rush delivery</div><div class="addon-desc">Need it in 24–48 hours? We'll make it happen.</div></div>
+    <div class="addon"><div class="addon-price">$500</div><div class="addon-name">Promo video</div><div class="addon-desc">Full promotional video, 2–3 min. Scripted, shot, and edited.</div></div>
+    <div class="addon"><div class="addon-price">Custom</div><div class="addon-name">Event coverage</div><div class="addon-desc">Game days, grand openings, pop-ups. Full event photo + video.</div></div>
+  </div>
+</section>
+
+<section class="process-section">
+  <div class="section-label">How it works</div>
+  <div class="process-grid">
+    <div class="process-step"><div class="step-num">01</div><div class="step-title">Discovery call</div><div class="step-desc">We learn your brand, goals, and what content you actually need. 20 minutes, no pressure.</div></div>
+    <div class="process-step"><div class="step-num">02</div><div class="step-title">Content plan</div><div class="step-desc">We map out the month — shoot dates, content themes, and what we're making and why.</div></div>
+    <div class="process-step"><div class="step-num">03</div><div class="step-title">We shoot</div><div class="step-desc">We show up, we capture, we handle everything. You stay focused on running your business.</div></div>
+    <div class="process-step"><div class="step-num">04</div><div class="step-title">Deliver & post</div><div class="step-desc">Edited content lands in your inbox, ready to post. Captions and hashtags included.</div></div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <h2>Ready to look<br>the part?</h2>
+  <p>Most local businesses are leaving money on the table with bad content. Let's fix that.</p>
+  <a href="https://app.squareup.com/appointments/book/epxj5y0kkq7lo6/L9JPWWCQKEAFW/start" target="_blank" class="cta-btn">Book a free call</a>
+  <p class="cta-sub">Or call/text: <a href="tel:6303382172">630-338-2172</a></p>
+</section>
+
+<footer>
+  <a href="index.html" class="logo">Big Dog <span>Media</span> LLC</a>
+  <div class="footer-links">
+    <a href="index.html">Work</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <div class="footer-contact">
+    <a href="mailto:vincentarmato.co@gmail.com">vincentarmato.co@gmail.com</a>
+    <a href="tel:6303382172">630-338-2172</a>
+  </div>
+</footer>
+</body>
+</html>

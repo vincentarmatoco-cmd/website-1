@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Big Dog Media</title>
+  <meta name="description" content="Get in touch with Big Dog Media. Tell us about your project and let's start creating together." />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <style>
+    .contact-social {
+      display: flex;
+      gap: 12px;
+      margin-top: 32px;
+    }
+    .contact-social a {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1.5px solid var(--gray-200);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--gray-600);
+      transition: all var(--transition);
+    }
+    .contact-social a:hover {
+      border-color: var(--gold);
+      color: var(--gold-dark);
+      background: rgba(232,184,75,0.06);
+    }
+    .form-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--black);
+      margin-bottom: 24px;
+    }
+    .success-msg {
+      display: none;
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      color: #16a34a;
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="navbar__inner">
+      <a href="../index.html" class="navbar__logo">BIG <span>DOG</span> MEDIA</a>
+      <ul class="navbar__links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="navbar__cta">
+        <a href="contact.html" class="btn btn-primary">Get In Touch</a>
+      </div>
+      <button class="navbar__hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu">
+    <a href="../index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="contact.html">Contact</a>
+    <a href="contact.html" class="btn btn-primary" style="text-align:center;justify-content:center;">Get In Touch</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <span class="page-hero__eyebrow">Let's Talk</span>
+      <h1 class="page-hero__title">Get In Touch</h1>
+      <p class="page-hero__desc">Have a project in mind? We'd love to hear about it. Fill out the form and we'll get back to you within 1 business day.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section class="section">
+    <div class="container">
+      <div class="contact-layout">
+
+        <!-- Contact Info -->
+        <div>
+          <h2 class="contact-info__title">Let's Get to Work</h2>
+          <p class="contact-info__desc">Photo, video, and social media content for local businesses in the Chicagoland area. Month-to-month. No fluff. Real results.</p>
+
+          <div class="contact-detail">
+            <div class="contact-detail__icon">✉️</div>
+            <div>
+              <p class="contact-detail__label">Email</p>
+              <a href="mailto:vincentarmato@bigdogmedia.com" class="contact-detail__value">vincentarmato@bigdogmedia.com</a>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <div class="contact-detail__icon">📞</div>
+            <div>
+              <p class="contact-detail__label">Phone</p>
+              <a href="tel:+16303382172" class="contact-detail__value">(630) 338-2172</a>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <div class="contact-detail__icon">📍</div>
+            <div>
+              <p class="contact-detail__label">Location</p>
+              <p class="contact-detail__value">Available locally & nationwide</p>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <div class="contact-detail__icon">🕐</div>
+            <div>
+              <p class="contact-detail__label">Response Time</p>
+              <p class="contact-detail__value">Within 1 business day</p>
+            </div>
+          </div>
+
+          <div class="about-details">
+            <div class="detail-row">
+              <span class="detail-key">Based in</span>
+              <span class="detail-val">Chicagoland, IL</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-key">Service area</span>
+              <span class="detail-val">Chicago metro + suburbs</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-key">Turnaround</span>
+              <span class="detail-val">3–7 days standard</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-key">Contracts</span>
+              <span class="detail-val">Month-to-month only</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-key">Rush available</span>
+              <span class="detail-val">Yes — 24–48 hrs</span>
+            </div>
+          </div>
+
+          <div class="contact-methods">
+            <a href="mailto:vincentarmato.co@gmail.com" class="contact-method">
+              <div>
+                <div class="contact-method__label">Email</div>
+                <div class="contact-method__val">vincentarmato.co@gmail.com</div>
+              </div>
+              <div class="contact-method__arrow">→</div>
+            </a>
+            <a href="tel:6303382172" class="contact-method">
+              <div>
+                <div class="contact-method__label">Call or Text</div>
+                <div class="contact-method__val">630-338-2172</div>
+              </div>
+              <div class="contact-method__arrow">→</div>
+            </a>
+            <a href="https://app.squareup.com/appointments/book/epxj5y0kkq7lo6/L9JPWWCQKEAFW/start" target="_blank" class="contact-method">
+              <div>
+                <div class="contact-method__label">Book a Call</div>
+                <div class="contact-method__val">Free 20-min strategy call</div>
+              </div>
+              <div class="contact-method__arrow">→</div>
+            </a>
+          </div>
+
+          <div class="contact-social">
+            <a href="https://www.instagram.com/vincent_armato" target="_blank" aria-label="Instagram">IG</a>
+            <a href="https://www.facebook.com/vincent_armato" target="_blank" aria-label="Facebook">FB</a>
+            <a href="https://www.linkedin.com/in/vincent_armato" target="_blank" aria-label="LinkedIn">LI</a>
+            <a href="https://www.youtube.com/@vincent_armato" target="_blank" aria-label="YouTube">YT</a>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="contact-form">
+          <p class="form-title">Send Us a Message</p>
+          <div class="success-msg" id="successMsg">
+            ✓ &nbsp;Your message has been sent! We'll be in touch within 1 business day.
+          </div>
+          <form id="contactForm" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="firstName">First Name *</label>
+                <input type="text" id="firstName" name="firstName" placeholder="John" required />
+              </div>
+              <div class="form-group">
+                <label for="lastName">Last Name *</label>
+                <input type="text" id="lastName" name="lastName" placeholder="Smith" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" name="email" placeholder="john@company.com" required />
+            </div>
+            <div class="form-group">
+              <label for="company">Company / Brand Name</label>
+              <input type="text" id="company" name="company" placeholder="Your Company" />
+            </div>
+            <div class="form-group">
+              <label for="service">Service You're Interested In</label>
+              <select id="service" name="service">
+                <option value="" disabled selected>Select a service...</option>
+                <option value="video">Video Production</option>
+                <option value="photo">Photography</option>
+                <option value="social">Social Media Management</option>
+<option value="ads">Paid Ad Campaigns</option>
+                <option value="multiple">Multiple Services</option>
+                <option value="unsure">Not Sure Yet</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Tell Us About Your Project *</label>
+              <textarea id="message" name="message" placeholder="Describe your project, goals, timeline, and any other details that will help us understand your needs..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:16px;">
+              Send Message →
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__logo">BIG <span>DOG</span> MEDIA</div>
+          <p class="footer__tagline">Your end-to-end creative partner. Video, photography, branding, and marketing — all under one roof.</p>
+          <div class="footer__social">
+            <a href="https://www.instagram.com/vincent_armato" target="_blank" aria-label="Instagram">IG</a>
+            <a href="https://www.facebook.com/vincent_armato" target="_blank" aria-label="Facebook">FB</a>
+            <a href="https://www.linkedin.com/in/vincent_armato" target="_blank" aria-label="LinkedIn">LI</a>
+            <a href="https://www.youtube.com/@vincent_armato" target="_blank" aria-label="YouTube">YT</a>
+          </div>
+        </div>
+        <div class="footer__col">
+          <p class="footer__col-title">Services</p>
+          <ul>
+            <li><a href="services.html">Video Production</a></li>
+            <li><a href="services.html">Photography</a></li>
+            <li><a href="services.html">Social Media</a></li>
+            <li><a href="services.html">Ad Campaigns</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <p class="footer__col-title">Company</p>
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <p class="footer__col-title">Contact</p>
+          <ul>
+            <li><a href="mailto:vincentarmato@bigdogmedia.com">vincentarmato@bigdogmedia.com</a></li>
+            <li><a href="tel:+16303382172">(630) 338-2172</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 Big Dog Media. All rights reserved.</p>
+        <p>Built with purpose.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script>
+    // Show success message on form submit
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      document.getElementById('successMsg').style.display = 'block';
+      this.reset();
+      setTimeout(() => {
+        document.getElementById('successMsg').style.display = 'none';
+      }, 5000);
+    });
+  </script>
+</body>
+</html>
